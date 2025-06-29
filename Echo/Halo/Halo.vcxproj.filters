@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Foundation">
+      <UniqueIdentifier>{7863e00d-1da6-45d0-a466-8f48a5e41463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Foundation\Socket">
+      <UniqueIdentifier>{658febf8-1544-4334-8a0c-a1afb3fc6bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Socket">
+      <UniqueIdentifier>{d6827328-4437-4bfc-987e-9a49568d41ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Foundation\Utility">
+      <UniqueIdentifier>{57b57576-fac7-45e8-b1b6-b918d0beb551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Socket\Udp">
+      <UniqueIdentifier>{9f85313b-ebd7-4bde-b8f6-cfdbb243b6ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Socket.h">
+      <Filter>ヘッダー ファイル\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketHub.h">
+      <Filter>ヘッダー ファイル\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpSocket.h">
+      <Filter>ヘッダー ファイル\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="Result.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ITransmitter.h">
+      <Filter>ヘッダー ファイル\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="IUdpTransmitter.h">
+      <Filter>ヘッダー ファイル\Socket\Udp</Filter>
+    </ClInclude>
+    <ClInclude Include="IUdpReceiver.h">
+      <Filter>ヘッダー ファイル\Socket\Udp</Filter>
+    </ClInclude>
+    <ClInclude Include="UdpSocket.h">
+      <Filter>ヘッダー ファイル\Socket\Udp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Socket.cpp">
+      <Filter>ソース ファイル\Foundation\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketHub.cpp">
+      <Filter>ソース ファイル\Foundation\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="Halo.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSocket.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="UdpSocket.cpp">
+      <Filter>ソース ファイル\Foundation\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpSocket.cpp">
+      <Filter>ソース ファイル\Foundation\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="Error.cpp">
+      <Filter>ソース ファイル\Foundation\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
