@@ -4,10 +4,12 @@
 #include <array>
 #include <string>
 
+#include "ITransmitter.h"
+
 namespace Halo
 {
 	/// @brief 
-	class Socket
+	class Socket : public ITransmitter
 	{
 	public:
 		explicit Socket(const std::string& ip, const std::uint16_t port) noexcept;
@@ -23,8 +25,8 @@ namespace Halo
 
 	public:
 		// sendto, recvfrom
-		/*[[nodiscard]] std::int32_t Send(const void* data, std::int32_t size) const;
-		[[nodiscard]] std::int32_t Receive(void* data, std::int32_t size) const;*/
+		[[nodiscard]] std::int32_t Send(const void* data, std::int32_t size) const override final;
+		[[nodiscard]] std::int32_t Recv(void* data, std::int32_t size) const override final;
 
 	protected:
 		std::int32_t sockfd_;

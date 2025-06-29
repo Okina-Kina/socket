@@ -60,6 +60,32 @@ int main()
 				std::cerr << "Failed to accept connection on host socket >> " << WSAGetLastError() << std::endl;
 			}
 
+			while (true)
+			{
+				char send_buffer[1024] = { 0 };
+				//if (host.Send(send_buffer, sizeof(send_buffer))) {
+				//	std::cout << "Host socket sent data successfully." << std::endl;
+				//}
+				//else {
+				//	std::cerr << "Failed to send data on host socket >> " << WSAGetLastError() << std::endl;
+				//}
+
+				char recv_buffer[1024] = { 0 };
+				int ret = host.Recv(recv_buffer, sizeof(recv_buffer));
+				if (ret > 0) {
+					std::cout << "Host socket received data successfully." << std::endl;
+				}
+				else if (ret == 0) {
+					std::cout << "Host socket: peer disconnected." << std::endl;
+					break;  // ƒ‹[ƒv”²‚¯‚éˆ—‚È‚Ç
+				}
+				else {
+					std::cerr << "Failed to receive data on host socket >> " << WSAGetLastError() << std::endl;
+				}
+
+				std::this_thread::sleep_for(std::chrono::seconds(1));
+			}
+
 			result = host.Shutdown(SD_BOTH);
 			if (result != SOCKET_ERROR) {
 				std::cout << "Host socket shutdown successfully." << std::endl;
@@ -96,6 +122,28 @@ int main()
 			else {
 				std::cerr << "Failed to connect guest socket >> " << WSAGetLastError() << std::endl;
 			}
+
+			while (true)
+			{
+				std::string send_buffer = "hello";
+				if (guest.Send(send_buffer.c_str(), send_buffer.size()) > 0) {
+					std::cout << "Guest socket sent data successfully." << std::endl;
+				}
+				else {
+					std::cerr << "Failed to send data on guest socket >> " << WSAGetLastError() << std::endl;
+				}
+
+				//char recv_buffer[1024] = { 0 };
+				//if (guest.Recv(recv_buffer, sizeof(recv_buffer)) > 0) {
+				//	std::cout << "Guest socket received data successfully." << std::endl;
+				//}
+				//else {
+				//	std::cerr << "Failed to receive data on guest socket >> " << WSAGetLastError() << std::endl;
+				//}
+
+				std::this_thread::sleep_for(std::chrono::seconds(1));
+			}
+
 
 			result = guest.Shutdown(SD_BOTH);
 			if (result != SOCKET_ERROR) {

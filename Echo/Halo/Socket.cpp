@@ -32,7 +32,7 @@ namespace Halo
 
 		return sockfd_;
 	}
-
+	
 	std::int32_t Socket::Shutdown(const std::int32_t how)
 	{
 		return shutdown(sockfd_, how);
@@ -55,6 +55,16 @@ namespace Halo
 		socklen_t addrlen = sizeof(sockaddr);
 
 		return connect(sockfd_, reinterpret_cast<sockaddr*>(&addr), addrlen);
+	}
+
+	std::int32_t Socket::Send(const void* data, std::int32_t size) const
+	{
+		return ::send(sockfd_, reinterpret_cast<char*>(&data), size, 0);
+	}
+
+	std::int32_t Socket::Recv(void* data, std::int32_t size) const
+	{
+		return ::recv(sockfd_, reinterpret_cast<char*>(&data), size, 0);
 	}
 
 	// TODO: IPv6‘Î‰ž
