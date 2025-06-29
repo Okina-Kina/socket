@@ -59,6 +59,22 @@ int main()
 			else {
 				std::cerr << "Failed to accept connection on host socket >> " << WSAGetLastError() << std::endl;
 			}
+
+			result = host.Shutdown(SD_BOTH);
+			if (result != SOCKET_ERROR) {
+				std::cout << "Host socket shutdown successfully." << std::endl;
+			}
+			else {
+				std::cerr << "Failed to shutdown host socket >> " << WSAGetLastError() << std::endl;
+			}
+
+			result = host.Close();
+			if (result != SOCKET_ERROR) {
+				std::cout << "Host socket closed successfully." << std::endl;
+			}
+			else {
+				std::cerr << "Failed to close host socket >> " << WSAGetLastError() << std::endl;
+			}
 		}
 	};
 
@@ -79,6 +95,22 @@ int main()
 			}
 			else {
 				std::cerr << "Failed to connect guest socket >> " << WSAGetLastError() << std::endl;
+			}
+
+			result = guest.Shutdown(SD_BOTH);
+			if (result != SOCKET_ERROR) {
+				std::cout << "Guest socket shutdown successfully." << std::endl;
+			}
+			else {
+				std::cerr << "Failed to shutdown guest socket >> " << WSAGetLastError() << std::endl;
+			}
+
+			result = guest.Close();
+			if (result != SOCKET_ERROR) {
+				std::cout << "Guest socket closed successfully." << std::endl;
+			}
+			else {
+				std::cerr << "Failed to close guest socket >> " << WSAGetLastError() << std::endl;
 			}
 		}
 	};
